@@ -4,7 +4,7 @@
     "description": "A Spacebar-powered chat platform for Chillboio Studios.",
     "descriptionLong": "A fully self-hosted Spacebar instance running a custom backend and Fermi web client. Designed for reliability, performance, and a Discord-like experience.",
     "image": "https://chat.chillboiostudios.com/logo.webp",
-    "url": "https://chat.chillboiostudios.com",
+    "url": "https://chat-backend.chillboiostudios.com",
     "language": "en",
     "country": "US",
     "display": true,
