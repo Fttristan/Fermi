@@ -10,6 +10,7 @@
     "display": true,
 
     "urls": {
+		"wellknown": "https://chat-backend.chillboiostudios.com",
         "api": "https://chat-backend.chillboiostudios.com/api",
         "cdn": "https://chat-backend.chillboiostudios.com",
         "gateway": "wss://chat-backend.chillboiostudios.com/gateway",
