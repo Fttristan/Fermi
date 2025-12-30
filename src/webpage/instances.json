@@ -10,7 +10,6 @@
     "display": true,
 
     "urls": {
-        "wellknown": "https://chat.chillboiostudios.com/.well-known/spacebar.json",
         "api": "https://chat-backend.chillboiostudios.com/api",
         "cdn": "https://chat-backend.chillboiostudios.com",
         "gateway": "wss://chat-backend.chillboiostudios.com/gateway",
