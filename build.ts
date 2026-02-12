@@ -260,3 +260,9 @@ if (process.argv.includes("watch")) {
 
 await fs.rm(path.join(__dirname, "dist", "webpage", "_worker.js"), { force: true });
 
+await fs.copyFile(
+  path.join(__dirname, "_routes.json"),
+  path.join(__dirname, "dist", "webpage", "_routes.json")
+);
+
+
