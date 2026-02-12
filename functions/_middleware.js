@@ -6,10 +6,14 @@ export async function onRequest(context) {
     const newUrl = new URL(context.request.url);
     newUrl.pathname = toPath;
 
-    // Clone the original request but with the rewritten URL
-    const rewritten = new Request(newUrl.toString(), context.request);
+    const rewrittenRequest = new Request(newUrl, {
+      method: context.request.method,
+      headers: context.request.headers,
+      body: context.request.body,
+      redirect: "manual" // IMPORTANT
+    });
 
-    return context.env.ASSETS.fetch(rewritten);
+    return context.env.ASSETS.fetch(rewrittenRequest);
   }
 
   if (url.pathname.startsWith("/channels/")) {
