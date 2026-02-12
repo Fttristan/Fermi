@@ -1,16 +1,23 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
+  const origin = url.origin;
+
+  function serve(path) {
+    return context.env.ASSETS.fetch(
+      new Request(origin + path, context.request)
+    );
+  }
 
   if (url.pathname.startsWith("/channels/")) {
-    return context.env.ASSETS.fetch(new Request("/app.html", context.request));
+    return serve("/app.html");
   }
 
   if (url.pathname.startsWith("/invite/")) {
-    return context.env.ASSETS.fetch(new Request("/invite.html", context.request));
+    return serve("/invite.html");
   }
 
   if (url.pathname.startsWith("/template/")) {
-    return context.env.ASSETS.fetch(new Request("/template.html", context.request));
+    return serve("/template.html");
   }
 
   return context.next();
