@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [],
+  "routes": [
+    { "pattern": "/channels/*", "serve": "/app.html" },
+    { "pattern": "/invite/*", "serve": "/invite.html" },
+    { "pattern": "/template/*", "serve": "/template.html" }
+  ]
+}
