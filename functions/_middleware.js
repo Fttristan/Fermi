@@ -1,23 +1,27 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
-  const origin = url.origin;
 
-  function serve(path) {
-    return context.env.ASSETS.fetch(
-      new Request(origin + path, context.request)
-    );
+  // Internal rewrite helper
+  function rewrite(toPath) {
+    const newUrl = new URL(context.request.url);
+    newUrl.pathname = toPath;
+
+    // Clone the original request but with the rewritten URL
+    const rewritten = new Request(newUrl.toString(), context.request);
+
+    return context.env.ASSETS.fetch(rewritten);
   }
 
   if (url.pathname.startsWith("/channels/")) {
-    return serve("/app.html");
+    return rewrite("/app.html");
   }
 
   if (url.pathname.startsWith("/invite/")) {
-    return serve("/invite.html");
+    return rewrite("/invite.html");
   }
 
   if (url.pathname.startsWith("/template/")) {
-    return serve("/template.html");
+    return rewrite("/template.html");
   }
 
   return context.next();
