@@ -5,20 +5,6 @@
   "assets": {
     "directory": "./dist/webpage"
   },
-
-  "routes": [
-    {
-      "pattern": "chat.chillboiostudios.com/*",
-      "custom_domain": true
-    },
-    {
-      "pattern": "*.fermi.vrcband.workers.dev/*"
-    },
-    {
-      "pattern": "fermi.vrcband.workers.dev/*"
-    }
-  ],
-
   "rules": [
     {
       "type": "Rewrite",
